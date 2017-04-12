@@ -1,0 +1,278 @@
+#uploadform-imagefile {
+    display: none;
+}
+
+.field-uploadform-imagefile .control-label {
+    font-weight: 400;
+}
+
+.field-uploadform-imagefile .control-label:hover {
+    cursor: pointer;
+}
+
+.fa-6 {
+    font-size: 15em !important;
+}
+
+.de_light .item h4 {
+    text-align: left;
+    font-weight: 700;
+}
+
+.de_light .item .tiny-border {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.detail_item #sidebar h4,
+.catalog_item #sidebar h4,
+.prop, .tech_prop {
+    font-weight: 700;
+}
+
+.detail_item .widget_category li,
+.catalog_item .widget_category li {
+     border: none;
+}
+
+.detail_item .widget ,
+.catalog_item .widget{  
+      border: none;
+}
+
+.detail_item, .catalog_item {
+   font-size: 14px;
+}
+
+.item {
+    margin-top: -10px;   
+}
+
+.detail_item .widget_category li ,
+.catalog_item .widget_category li{
+    padding: 8px 20px 0px 0px;
+    margin-bottom: 0px
+} 
+
+.tech_block {
+    margin-top: 65px;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+}
+.tech_block span {
+    font-size: 14px;
+    margin-left: 0;
+}  
+
+.tech_block .btn-line{
+    margin-top: 20px;
+    background: none;
+    height: 40px;
+    border: 2px solid #ffd200 !important;
+    text-transform: none;
+    color: #ffd200;
+    font-size: 16px;
+}  
+.tech_block .btn:focus {
+    outline: none;
+}
+
+#mainmenu a {
+    font-size: 16px;
+}
+
+.logo-lg img {
+    width: 100%;  
+}
+
+header .phone {
+    font-size: 22px !important;
+    padding-right: 0 !important;
+}
+
+header .text-right {
+    height: 40px;
+}
+
+header .col-md-8 {
+    margin-top: 10px;
+}
+
+.text_descr {
+    font-size: 16px;
+}
+
+.item_img img {
+    width: 300px;
+    height: 300px;
+}	
+
+.catalog_img img {
+    width: 262px;
+    height: 262px;
+}
+
+#gallery .item {
+    height: 215px;  
+}
+
+.callback_btn:hover {
+    cursor: pointer;
+}
+
+#logo img {
+    width: 174px;
+}
+
+#contactform-body {
+    width: 100%;
+}
+    
+.modal {
+    top: 20% !important;
+}
+
+.item_img {
+    width: 300px;
+    height: 300px;  
+}
+
+.parent_cat a {
+    color: #000 !important;
+    font-weight: 700;
+}
+
+.chld_cat  a{
+    color: #606060 !important;
+    font-weight: 400;
+}
+
+.main_item_img {
+     width: 262px;
+     height: 262px;
+ }
+
+
+/*==========================   GRADE   =============================*/
+.comment_block {
+    height: auto;
+    background: #D5D5D5;
+    position: relative;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.comment_block:hover {
+    background: #FF888D;
+}
+
+.comment_block:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.comment_hover .comment_down:before {
+    border-top: 7px solid #FF888D;
+}
+
+.comment_down:before {
+    top: 100%;
+    left: 48%;
+    border: 7px solid transparent;
+    border-top: 7px solid #D5D5D5;
+}
+
+.comment_right:before {
+    right: 100%;
+    top: 40%;
+    border-top: 7px solid transparent;
+    border-right: 7px solid #D5D5D5;
+    border-bottom: 7px solid transparent;
+}
+
+.comment_hover .comment_right:before {
+    border-right: 7px solid #FF888D;
+}
+
+
+.comment_left, .comment_right {
+    height: 80px;
+    margin-top: 30px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.comment_left p {
+    margin-top: 20px !important;
+}
+
+.comment_left p, .comment_right p {
+    margin: 0;
+
+
+}
+
+.comment_left:before {
+    left: 100%;
+    top: 40%;
+    border-top: 7px solid transparent;
+    border-left: 7px solid #D5D5D5;
+    border-bottom: 7px solid transparent;
+}
+
+.comment_hover .comment_left:before {
+    border-left: 7px solid #FF888D;
+}
+
+.comment_top:before {
+    bottom: 100%;
+    left: 48%;
+    border: 7px solid transparent;
+    border-bottom: 7px solid #D5D5D5;
+}
+
+.comment_hover .comment_top:before {
+    border-bottom: 7px solid #FF888D;
+}
+
+.circle {
+    line-height: 36px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    width: 147px;
+    height: 147px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFD200;
+    background-color: #FFFFFF;
+    -moz-border-radius: 91px;
+    -webkit-border-radius: 91px;
+    -khtml-border-radius: 91px;
+    border-radius: 91px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+.row_mid {
+    margin: 20px 0;
+    height: 147px;
+}
+
+.item_img .preview_img img{
+    width: 80px;
+    height: 80px;
+    margin: 10px 5px;
+}
+.item_img .preview_img:first-child img {
+    margin-left: 0 !important;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

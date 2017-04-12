@@ -6,7 +6,13 @@ $this->title = 'Главная';
     foreach($cat_model as $cat){
 	$cat_link[$cat->id] = $cat->link;
     }
-}?>
+}
+if(isset($igallery_model)){
+	foreach($igallery_model as $items){
+		$gallery[$items->item_id][] = $items->img;
+	}
+}
+?>
 
  <div id="content" class="no-bottom no-top">
 
@@ -14,54 +20,54 @@ $this->title = 'Главная';
             <section id="section-slider" class="fullwidthbanner-container" aria-label="section-slider">
                 <div id="revolution-slider">
                     <ul>
-			<?if(isset($slider_model)):?>
-			    <?foreach($slider_model as $slide):?>
-				<li data-transition="fade" data-slotamount="10" data-masterspeed="default" data-thumb="">
-				    <!--  BACKGROUND IMAGE -->
-				    <img src="<?=$slide->img?>" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
+					<?if(isset($slider_model)):?>
+						<?foreach($slider_model as $slide):?>
+						<li data-transition="fade" data-slotamount="10" data-masterspeed="default" data-thumb="">
+							<!--  BACKGROUND IMAGE -->
+							<img src="<?=$slide->img?>" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
 
-				    <div class="tp-caption very-big-white"
-					data-x="0"
-					data-y="270"
-					data-width="none"
-					data-height="none"
-					data-whitespace="nowrap"
-					data-transform_in="x:50px;opacity:0;s:1000;e:Power3.easeOut;"
-					data-transform_out="opacity:0;x:-10;px;s:800;e:Power3.easeInOut;"
-					data-start="700"
-					data-splitin="none"
-					data-splitout="none"
-					data-responsive_offset="on">
-					<?=$slide->title?><span class="id-color">.</span>
-				    </div>
+							<div class="tp-caption very-big-white"
+							data-x="0"
+							data-y="270"
+							data-width="none"
+							data-height="none"
+							data-whitespace="nowrap"
+							data-transform_in="x:50px;opacity:0;s:1000;e:Power3.easeOut;"
+							data-transform_out="opacity:0;x:-10;px;s:800;e:Power3.easeInOut;"
+							data-start="700"
+							data-splitin="none"
+							data-splitout="none"
+							data-responsive_offset="on">
+							<?=$slide->title?><span class="id-color">.</span>
+							</div>
 
-				    <div class="tp-caption"
-					data-x="0"
-					data-y="330"
-					data-width="none"
-					data-height="none"
-					data-whitespace="nowrap"
-					data-transform_in="y:100px;opacity:0;s:500;e:Power3.easeOut;"
-					data-transform_out="opacity:0;x:-10;s:800;e:Power3.easeInOut;"
-					data-start="1100">
-					
-				    </div>
+							<div class="tp-caption"
+							data-x="0"
+							data-y="330"
+							data-width="none"
+							data-height="none"
+							data-whitespace="nowrap"
+							data-transform_in="y:100px;opacity:0;s:500;e:Power3.easeOut;"
+							data-transform_out="opacity:0;x:-10;s:800;e:Power3.easeInOut;"
+							data-start="1100">
 
-				    <div class="tp-caption"
-					data-x="0"
-					data-y="420"
-					data-width="none"
-					data-height="none"
-					data-whitespace="nowrap"
-					data-transform_in="y:100px;opacity:0;s:500;e:Power3.easeOut;"
-					data-transform_out="opacity:0;x:-10;s:800;e:Power3.easeInOut;"
-					data-start="1200">
-					<a href="<?=$slide->link?>" class="btn-slider">Перейти в каталог
-					</a>
-				    </div>
-				</li>
-			    <?endforeach?>	
-			<?endif?>                        
+							</div>
+
+							<div class="tp-caption"
+							data-x="0"
+							data-y="420"
+							data-width="none"
+							data-height="none"
+							data-whitespace="nowrap"
+							data-transform_in="y:100px;opacity:0;s:500;e:Power3.easeOut;"
+							data-transform_out="opacity:0;x:-10;s:800;e:Power3.easeInOut;"
+							data-start="1200">
+							<a href="<?=$slide->link?>" class="btn-slider">Перейти в каталог
+							</a>
+							</div>
+						</li>
+						<?endforeach?>
+					<?endif?>
                     </ul>
                 </div>
             </section>
@@ -81,22 +87,21 @@ $this->title = 'Главная';
 								<div class="col-md-3" style="background-size: cover;">
 									<a href="/catalog/<?=$cat_link[$item->cat_id]?>/<?=$item->id?>">
 										<div class="profile_pic">
-										<figure class="pic-hover hover-scale mb30 main_item_img">
-											<?if($item->img != 'none'):?>
-											<img src="<?=$item->img?>" class="img-responsive" alt="">
-											<?else:?>
-											<img src="/upload/noimage.png" class="img-responsive" alt="">
-											<?endif?>
-										</figure>
+											<figure class="pic-hover hover-scale mb30 main_item_img">
+												<?if(isset($gallery[$item->id][0])):?>
+													<img src="<?=$gallery[$item->id][0]?>" class="img-responsive" alt="">
+												<?else:?>
+													<img src="/upload/noimage.png" class="img-responsive" alt="">
+												<?endif?>
+											</figure>
 
-										<h3><?=$item->name?></h3>
-										<span class="tiny-border"></span>
+											<h3><?=$item->name?></h3>
+											<span class="tiny-border"></span>
 										</div>
 									</a>
 								</div>
 							<?endforeach?>
 						<?endif?>
-
                     </div>
                 </div>
             </section>

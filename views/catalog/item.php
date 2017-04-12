@@ -57,39 +57,53 @@ $this->params['breadcrumbs'][] = $this->title;
 				    <h4><?=$item_model->name?></h4>
 				    <span class="tiny-border"></span>
 				    <figure class="item_img">
-					<?if($item_model->img != 'none'):?>
-					    <img src="<?=$item_model->img?>" class="item_img" alt="">
-					<?else:?>
-					    <img src="/upload/noimage.png" class="item_img" alt="">
-					<?endif?>
+
+						<?if(!isset($igallery_model[0])):?>
+							<img src="/upload/noimage.png" class="item_img" alt="">
+						<?endif?>
+						<div class="gallery full-gallery de-gallery pf_full_width pf_4_cols zoom-gallery">
+							<?if(isset($igallery_model)):?>
+								<?foreach($igallery_model as $k => $image):
+									if($k == 0):?>
+										<a href="<?=$image->img?>">
+											<span class="overlay"></span>
+											<span class="center-xy">
+													<i class="fa fa-search btn-action btn-action-hide"></i>
+												</span>
+											<img src="<?=$image->img?>" alt="" />
+										</a>
+									<?else:?>
+										<a class="preview_img" href="<?=$image->img?>">
+											<span class="overlay"></span>
+											<span class="center-xy">
+												<i class="fa fa-search btn-action btn-action-hide"></i>
+											</span>
+											<img src="<?=$image->img?>" alt="" />
+										</a>
+									<?endif?>
+								<?endforeach?>
+							<?endif?>
+						</div>
 				    </figure>													    
 				</div>
 				<div class="col-md-7 tech_block">
 				    <p class="tech_prop">Технические характеристики</p>
 				    <?if(isset($item_model->manufacturer)):?>
-					<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
+						<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
 				    <?endif?>
+
 				    <?if(isset($item_model->wood)):?>
-					<span class="prop col-md-6">Порода дерева: </span><span class="col-md-6"><?=$item_model->wood?></span>
+						<span class="prop col-md-6">Порода дерева: </span><span class="col-md-6"><?=$item_model->wood?></span>
 				    <?endif?>
-				    <?if(isset($item_model->wet)):?>
-					<span class="prop col-md-6">Влажность : </span><span class="col-md-6"><?=$item_model->wet?></span>
+
+				    <?if(isset($item_model->thickness)):?>
+						<span class="prop col-md-6">Толщина : </span><span class="col-md-6"><?=$item_model->thickness?></span>
 				    <?endif?>
-				    <?if(isset($item_model->size)):
-					$sizes = explode(',', $item_model->size);?>
-					<span class="prop col-md-6">Размеры: </span><span class="col-md-6">					
-					    <?foreach($sizes as $size):?>
-						<?=$size?><br>
-					    <?endforeach?>    
-					</span>    
+
+				    <?if(isset($item_model->width)):?>
+						<span class="prop col-md-6">Ширина: </span><span class="col-md-6"><?=$item_model->width?></span>
 				    <?endif?>
-					fds
-				    <?if(isset($item_model->grade)):?>
-					<span class="prop col-md-6">Сортность: </span><span class="col-md-6"><?=$item_model->grade?></span>
-				    <?endif?>
-				    <?if(isset($item_model->price)):?>
-					<span class="prop col-md-6">Стоимость: </span><span class="col-md-6"><?=$item_model->price?></span>
-				    <?endif?>
+
 				    <input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
 				</div>
 			    <?endif?>                               
@@ -111,5 +125,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
 <?endif?>
-<?//="<pre>".print_r($item_model, 1);?>
+<?="<pre>".print_r($igallery_model, 1);?>
 <?//="<pre>".print_r($gallery_model, 1);?>
