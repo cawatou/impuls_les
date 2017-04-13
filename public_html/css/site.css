@@ -275,4 +275,16 @@ header .col-md-8 {
 }
 .item_img .preview_img:first-child img {
     margin-left: 0 !important;
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}
+
+.grade {
+    margin-bottom: 40px;
+}
+
+.grade3 .circle {
+    padding-top: 30px;
+}
+
+.main_img {
+    margin-left: 5px;
+}

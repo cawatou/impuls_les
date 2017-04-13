@@ -8,122 +8,119 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?if(isset($item_model)):?>
     <section id="subheader" data-stellar-background-ratio=".3">
-	<div class="container">
-	    <div class="row">
-		<div class="col-md-12">
-		    <h1><?=$this->title?></h1>
-		    <div class="small-border-deco"><span></span></div>
-		    <ul class="crumb">
-			<li><a href="/">Главная</a></li>
-			<li class="sep"></li>
-			<li><?=$this->title?></li>
-		    </ul>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1><?=$this->title?></h1>
+					<div class="small-border-deco"><span></span></div>
+					<ul class="crumb">
+						<li><a href="/">Главная</a></li>
+						<li class="sep"></li>
+						<li><?=$this->title?></li>
+					</ul>
+				</div>
+			</div>
 		</div>
-	    </div>
-	</div>
     </section>
     <!-- subheader close -->
 
     <!-- content begin -->
     <div id="content">
-	<div class="container">
-	    <div class="row detail_item">
-		<div id="sidebar" class="col-md-3">
-		    <div class="widget widget_category">
-			<h4>Каталог</h4>
-			<ul>
-			    <?if(isset($cat_model)):?>
-				<?foreach($cat_model as $cat):?>
-				    <li class='parent_cat'>
-					<a href="/catalog/<?=$cat->link?>"><?=$cat->name?></a>
-					<ul>
-					    <?foreach($all_item as $item):?>
-						<?if($item->cat_id == $cat->id):?>
-						    <li class='chld_cat'><a href="/catalog/<?=$cat->link?>/<?=$item->id?>"><?=$item->name?></a></li>
-					        <?endif?>     
-					    <?endforeach?>	
-					</ul>
-				    </li>
-				<?endforeach?>	
-			    <?endif?>
-			</ul>
-		    </div>
-		</div>
-		<div class="col-md-9">
-		    <div class="row">
-			<div class="products item">
-			    <?if(isset($item_model)):?>				
-				<div class="col-md-5 product">
-				    <h4><?=$item_model->name?></h4>
-				    <span class="tiny-border"></span>
-				    <figure class="item_img">
-
-						<?if(!isset($igallery_model[0])):?>
-							<img src="/upload/noimage.png" class="item_img" alt="">
-						<?endif?>
-						<div class="gallery full-gallery de-gallery pf_full_width pf_4_cols zoom-gallery">
-							<?if(isset($igallery_model)):?>
-								<?foreach($igallery_model as $k => $image):
-									if($k == 0):?>
-										<a href="<?=$image->img?>">
-											<span class="overlay"></span>
-											<span class="center-xy">
-													<i class="fa fa-search btn-action btn-action-hide"></i>
-												</span>
-											<img src="<?=$image->img?>" alt="" />
-										</a>
-									<?else:?>
-										<a class="preview_img" href="<?=$image->img?>">
-											<span class="overlay"></span>
-											<span class="center-xy">
-												<i class="fa fa-search btn-action btn-action-hide"></i>
-											</span>
-											<img src="<?=$image->img?>" alt="" />
-										</a>
-									<?endif?>
+		<div class="container">
+			<div class="row detail_item">
+				<div id="sidebar" class="col-md-3">
+					<div class="widget widget_category">
+						<h4>Каталог</h4>
+						<ul>
+							<?if(isset($cat_model)):?>
+								<?foreach($cat_model as $cat):?>
+									<li class='parent_cat'>
+										<a href="/catalog/<?=$cat->link?>"><?=$cat->name?></a>
+										<ul>
+											<?foreach($all_item as $item):?>
+												<?if($item->cat_id == $cat->id):?>
+													<li class='chld_cat'><a href="/catalog/<?=$cat->link?>/<?=$item->id?>"><?=$item->name?></a></li>
+												<?endif?>
+											<?endforeach?>
+										</ul>
+									</li>
 								<?endforeach?>
 							<?endif?>
-						</div>
-				    </figure>													    
+						</ul>
+					</div>
 				</div>
-				<div class="col-md-7 tech_block">
-				    <p class="tech_prop">Технические характеристики</p>
-				    <?if(isset($item_model->manufacturer)):?>
-						<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
-				    <?endif?>
 
-				    <?if(isset($item_model->wood)):?>
-						<span class="prop col-md-6">Порода дерева: </span><span class="col-md-6"><?=$item_model->wood?></span>
-				    <?endif?>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="products item">
+						<?if(isset($item_model)):?>
+							<div class="col-md-5 product">
+								<h4><?=$item_model->name?></h4>
+								<span class="tiny-border"></span>
+								<figure class="item_img">
 
-				    <?if(isset($item_model->thickness)):?>
-						<span class="prop col-md-6">Толщина : </span><span class="col-md-6"><?=$item_model->thickness?></span>
-				    <?endif?>
+									<?if(!isset($igallery_model[0])):?>
+										<img src="/upload/noimage.png" class="item_img" alt="">
+									<?endif?>
+									<div class="gallery full-gallery de-gallery pf_full_width pf_4_cols zoom-gallery">
+										<?if(isset($igallery_model)):?>
+											<?foreach($igallery_model as $k => $image):
+												if($k == 0):?>
+													<a href="<?=$image->img?>">
+														<span class="overlay"></span>
+														<span class="center-xy">
+																<i class="fa fa-search btn-action btn-action-hide"></i>
+															</span>
+														<img src="<?=$image->img?>" alt="" class="main_img"/>
+													</a>
+												<?else:?>
+													<a class="preview_img" href="<?=$image->img?>">
+														<span class="overlay"></span>
+														<span class="center-xy">
+															<i class="fa fa-search btn-action btn-action-hide"></i>
+														</span>
+														<img src="<?=$image->img?>" alt="" />
+													</a>
+												<?endif?>
+											<?endforeach?>
+										<?endif?>
+									</div>
+								</figure>
+							</div>
+							<div class="col-md-7 tech_block">
+								<p class="tech_prop">Технические характеристики</p>
+								<?if(isset($item_model->manufacturer)):?>
+									<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
+								<?endif?>
 
-				    <?if(isset($item_model->width)):?>
-						<span class="prop col-md-6">Ширина: </span><span class="col-md-6"><?=$item_model->width?></span>
-				    <?endif?>
+								<?if(isset($item_model->wood)):?>
+									<span class="prop col-md-6">Порода дерева: </span><span class="col-md-6"><?=$item_model->wood?></span>
+								<?endif?>
 
-				    <input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
+								<?if(isset($item_model->thickness)):?>
+									<span class="prop col-md-6">Толщина : </span><span class="col-md-6"><?=$item_model->thickness?></span>
+								<?endif?>
+
+								<?if(isset($item_model->width)):?>
+									<span class="prop col-md-6">Ширина: </span><span class="col-md-6"><?=$item_model->width?></span>
+								<?endif?>
+
+								<input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
+							</div>
+						<?endif?>
+					</div>
+
 				</div>
-			    <?endif?>                               
 			</div>
 
+				<div class="col-md-12">
+					<h2><?=$item_model->title?><span class="tiny-border"></span></h2>
+					<div class="text_descr"><?=$item_model->description?></div>
+				</div>
 
-		    </div>
+			</div>
 		</div>
-
-		<div class="col-md-12">
-		    <h2><?=$item_model->title?><span class="tiny-border"></span></h2>
-		    <div class="text_descr"><?=$item_model->description?></div>
-		</div>
-
-	    </div>
 	</div>
-
-
-
-    </div>
 <?endif?>
 <?="<pre>".print_r($igallery_model, 1);?>
 <?//="<pre>".print_r($gallery_model, 1);?>
