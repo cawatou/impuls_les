@@ -28,6 +28,7 @@ class AppAsset extends AssetBundle
         'revolution/css/settings.css',
         'revolution/css/layers.css',
         'revolution/css/navigation.css',
+        'css/jquery-ui.css',
         'css/site.css',
     ];
     public $js = [
@@ -53,7 +54,8 @@ class AppAsset extends AssetBundle
          "revolution/js/extensions/revolution.extension.actions.min.js", 
          "revolution/js/extensions/revolution.extension.kenburn.min.js", 
          "revolution/js/extensions/revolution.extension.migration.min.js",
-         "revolution/js/extensions/revolution.extension.parallax.min.js", 
+         "revolution/js/extensions/revolution.extension.parallax.min.js",
+         "js/jquery-ui.js",
          "js/script.js",
     ];
     public $depends = [

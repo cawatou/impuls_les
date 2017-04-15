@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								</figure>
 							</div>
 							<div class="col-md-7 tech_block">
-								<p class="tech_prop">Технические характеристики</p>
+<!--							<p class="tech_prop">Технические характеристики</p>-->
 								<?if(isset($item_model->manufacturer)):?>
 									<span class="prop col-md-6">Производитель: </span><span class="col-md-6"><?=$item_model->manufacturer?></span>
 								<?endif?>
@@ -104,6 +104,65 @@ $this->params['breadcrumbs'][] = $this->title;
 								<?if(isset($item_model->width)):?>
 									<span class="prop col-md-6">Ширина: </span><span class="col-md-6"><?=$item_model->width?></span>
 								<?endif?>
+
+
+
+								<div id="calculator" class="col-md-12">
+									<div class="col-md-7">
+										Сортность:&nbsp;
+										<select class="grade">
+											<?if(isset($grade_model)):?>
+												<?foreach($grade_model as $grade):?>
+													<option value="<?=$grade->id?>"><?=$grade->title?></option>
+												<?endforeach?>
+											<?endif?>
+										</select>
+									</div>
+									<div class="col-md-5 price_block">
+										<select id="price_list">
+											<?if(isset($price_model)):?>
+												<?foreach($price_model as $row):?>
+													<option value="<?=$row->grade_id?>"><?=$row->price?></option>
+												<?endforeach?>
+											<?endif?>
+										</select>
+										</select>
+										Цена за кв. метр: <span class="price"><?=$price_model[0]->price?></span> &#8381;
+									</div>
+									<div class="col-md-12 range_slider">
+										<p>
+											<label for="amount">Длинна:</label>
+											<input type="text" id="amount" readonly> мм
+										</p>
+										<div id="slider-range-max"></div>
+										<div class="col-md-6 left_range">600 мм</div>
+										<div class="col-md-6 right_range">4000 мм</div>
+									</div>
+									<div class="col-md-7 input_values">
+										<p>
+											Заполните одно из полей — остальные
+											единицы будут рассчитаны автоматом:
+										</p>
+										<div class="col-md-4">
+											м3<br>
+											<input type="text" name="m3" class="measure m3" value="" pattern="[0-9]{3}">
+										</div>
+										<div class="col-md-4">
+											м2<br>
+											<input type="text" name="m2" class="measure m2" value="" pattern="[0-9]+$">
+										</div>
+										<div class="col-md-4">
+											шт.<br>
+											<input type="text" name="count" class="measure count" value="" pattern="[0-9]">
+										</div>
+										<input type="hidden" name="width" class="width" value="<?=$item_model->width / 1000?>">
+										<input type="hidden" name="thikness" class="thikness" value="<?=$item_model->thickness / 1000?>">
+									</div>
+									<div class="col-md-5 out_value">
+										Итого стоимость:<br>
+										<span class="total_price">0</span>  &#8381;
+									</div>
+								</div>
 
 								<input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
 							</div>
@@ -122,5 +181,5 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
 	</div>
 <?endif?>
-<?="<pre>".print_r($igallery_model, 1);?>
+<?="<pre>".print_r($grade_model, 1);?>
 <?//="<pre>".print_r($gallery_model, 1);?>

@@ -12,6 +12,8 @@ use yii\web\ForbiddenHttpException;
 
 use app\models\Item;
 use app\models\ItemGallery;
+use app\models\ItemGrade;
+use app\models\ItemPrice;
 use app\models\Category;
 
 class CatalogController extends AppController{
@@ -47,6 +49,14 @@ class CatalogController extends AppController{
     public function actionItem($id){
         $item_model = Item::find()->where(['id'=> $id])->one();
         $igallery_model = ItemGallery::find()->where(['item_id'=> $id])->all();
+        $price_model = ItemPrice::find()->where(['item_id'=> $id])->all();
+
+        $grade_model = ItemGrade::find()
+            ->select('item_grade.id, item_grade.title')
+            ->from('item_grade, item_price')
+            ->where('item_price.item_id = :item_id AND item_price.grade_id = item_grade.id', ["item_id" => $id])
+            ->all();
+
 	    $cat_model = Category::find()->all();
 	    $all_item = Item::find()->all();
         // Отправка формы из карточки товара
@@ -59,6 +69,8 @@ class CatalogController extends AppController{
         return $this->render('item', [
             'item_model' => $item_model,
             'igallery_model' => $igallery_model,
+            'price_model' => $price_model,
+            'grade_model' => $grade_model,
             'cat_model' => $cat_model,
             'all_item' => $all_item,
         ]);

@@ -288,3 +288,102 @@ header .col-md-8 {
 .main_img {
     margin-left: 5px;
 }
+
+
+/*CALCULATOR*/
+#calculator {
+    margin-top: 20px;
+    padding: 20px 0px;
+    background-color: #F6F6F6;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #E4E4E4;
+}
+
+select.grade {
+    width: 150px;
+    background: white;
+    text-align: center;
+    text-align-last: center;
+    margin-bottom: 30px;
+}
+.input_values {
+    margin-top: 20px;
+    font-size: 12px;
+
+}
+.input_values p{
+    text-align: left;
+    font-size: 13px;
+    line-height: 17px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.input_values input {
+    width: 80%;
+}
+
+.input_values div, .price_block {
+    padding: 0;
+}
+
+.out_value {
+    text-align: end;
+    margin-top: 62px;
+}
+
+#amount {
+    background: #F6F6F6;
+    border: none;
+    width: 40px;
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.range_slider label {
+    font-weight: 400;
+}
+
+.left_range, .right_range {
+    padding:  0;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.right_range {
+    text-align: right;
+}
+
+#slider-range-max {
+    background: #FFD200;
+    border: none;
+    height: 5px;
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+    background: white;
+}
+
+.ui-corner-all {
+    background: white;
+}
+
+span.ui-slider-handle {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 24px;
+    top: -10px !important;
+}
+
+span.ui-state-hover, span.ui-state-active {
+    border: 1px solid #c5c5c5 !important;
+    background: #f6f6f6!important;
+}
+
+span.ui-slider-handle:active, span.ui-slider-handle:focus { outline: none; }
+
+#price_list {
+    display: none;
+}
+

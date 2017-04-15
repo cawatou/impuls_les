@@ -92,4 +92,99 @@ jQuery(document).ready(function () {
             $(this).parent().removeClass( "comment_hover" );
         }
     )
+
+    // Range slider в карточке товара
+    $( function() {
+        $( "#slider-range-max" ).slider({
+            range: "max",
+            min: 600,
+            max: 4000,
+            value: 1200,
+            step: 100,
+            slide: function( event, ui ) {
+                $( "#amount" ).val( ui.value );
+                $('.measure').val('');
+            }
+        });
+        $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+    } );
+
+    // Фильтр ввода в input (только цифры)
+    $('.measure').bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+    });
+
 });
+
+
+/*========================  CALCULATOR =================================*/
+$('.grade').on('change', function(){
+    var id = $(this).val();
+    var price_list = [];
+    $( "#price_list option" ).each(function() {
+        var key = $(this).val();
+        var value = $(this).text();
+        key = parseInt(key);
+        price_list[key] = value;
+    });
+    var price = price_list[id];
+    $('span.price').html(price);
+    $('.measure').val('');
+})
+
+$(document).on('input', '.measure', function () {
+    var $item = $(this),
+        value = $item.val(),
+        type = $item.attr('name');
+
+    if(value > 0) calculate(type, value);
+    console.log(value, type);
+});
+
+function calculate(type, value){
+    var width = $('input.width').val(),
+        thikness = $('input.thikness').val(),
+        length = $('#amount').val(),
+        price = $('span.price').text(),
+        cubic, square, m3, m2, count, total_price;
+
+    length = length / 1000;
+    cubic = length * thikness * width;
+    square = length * width;
+
+    if(type === 'm3'){
+        m3 = value;
+        m2 = m3 / thikness;
+        m2 = parseFloat(m2).toFixed(3);
+        count = m3 / cubic;
+    }
+
+    if(type === 'm2'){
+        m2 = value;
+        m3 = m2 * thikness;
+        m3 = parseFloat(m3).toFixed(3);
+        count = m2 / square;
+    }
+
+    if(type === 'count'){
+        count = value;
+        m3 = count * cubic;
+        m3 = parseFloat(m3).toFixed(3);
+        m2 = count * square;
+        m2 = parseFloat(m2).toFixed(3);
+
+    }
+
+    total_price = price * m2;
+    total_price = Math.round(total_price);
+    count = Math.round(count);
+
+    $('input.m3').val(m3);
+    $('input.m2').val(m2);
+    $('input.count').val(count);
+    $('span.total_price').text(total_price);
+    console.log(width, thikness, length);
+}
+
