@@ -23,7 +23,7 @@ class Item extends \yii\db\ActiveRecord
             [['name', 'width', 'thickness'], 'required'],
             [['cat_id', 'width', 'thickness'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['manufacturer', 'wood', 'wet', 'size', 'grade', 'img', 'title'], 'string', 'max' => 255],
+            [['manufacturer', 'wood', 'img', 'title'], 'string', 'max' => 255],
             [['description'], 'string'],
         ];
     }
@@ -40,9 +40,8 @@ class Item extends \yii\db\ActiveRecord
             'img' => 'Изображение',
             'manufacturer' => 'Производиель',
             'wood' => 'Порода дерева',
-            'wet' => 'Влажность',
-            'size' => 'Размеры',
-            'grade' => 'Сортность',
+            'width' => 'Ширина',
+            'thickness' => 'Толщина',
             'title' => 'Заголовок',
             'description' => 'Описание',
         ];

@@ -16,6 +16,8 @@ $this->params['breadcrumbs'][] = 'Редактировать';
         'model' => $model,
         'cat_model' => $cat_model,
         'file_model' => $file_model,
+        'price_model' => $price_model,
+        'grade_model' => $grade_model,
     ]) ?>
 
 </div>

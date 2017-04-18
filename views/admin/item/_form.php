@@ -34,14 +34,49 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'wood')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'wet')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'width')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'thickness')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'grade')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
-    
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[0]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[0]->id?>]" value="<?=(isset($price_model[0])) ? $price_model[0]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[1]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[1]->id?>]" value="<?=(isset($price_model[1])) ? $price_model[1]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[2]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[2]->id?>]" value="<?=(isset($price_model[2])) ? $price_model[2]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[3]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[3]->id?>]" value="<?=(isset($price_model[3])) ? $price_model[3]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[4]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[4]->id?>]" value="<?=(isset($price_model[4])) ? $price_model[4]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+    <div class="form-group field-item-thickness required">
+        <label class="control-label"><?="Цена - ".$grade_model[5]->title?></label>
+        <input type="text" class="form-control" name="price[<?=$grade_model[5]->id?>]" value="<?=(isset($price_model[5])) ? $price_model[5]->price : '' ;?>">
+        <div class="help-block"></div>
+    </div>
+
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
       
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [

@@ -31,10 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'manufacturer',
             'wood',
-            'wet',
-            'size',
-            'grade',
-            'price',
             'img:image',
         ],
     ]) ?>

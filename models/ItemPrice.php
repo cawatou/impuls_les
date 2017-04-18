@@ -20,7 +20,7 @@ class ItemPrice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['item_id', 'grade_id', 'price'], 'required'],
+            [['item_id', 'grade_id'], 'required'],
             [['item_id', 'grade_id', 'price'], 'integer'],
         ];
     }

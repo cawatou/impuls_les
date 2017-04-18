@@ -4,6 +4,9 @@ namespace app\controllers\admin;
 
 use Yii;
 use app\models\Item;
+use app\models\ItemGallery;
+use app\models\ItemGrade;
+use app\models\ItemPrice;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,31 +73,40 @@ class ItemController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate(){
         $model = new Item();
         $cat_model = Category::find()->all();
-	$file_model = new UploadForm();
-       
+        $grade_model = ItemGrade::find()->all();
+	    $file_model = new UploadForm();
+
         if ($model->load(Yii::$app->request->post())) {
-	    if($_FILES['UploadForm']['name']['imageFile'] != '') {
-		$file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
-		//file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
-		if($file_model->upload_img()){
-		    $file_name = "/upload/".$_FILES['UploadForm']['name']['imageFile'];
-		    $model->img = $file_name;
-		    $model->save();
-		}
-	    }else{
-		$model->img = 'none';
-		$model->save();
-	    }
+            if($_FILES['UploadForm']['name']['imageFile'] != '') {
+                $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
+                //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
+                if($file_model->upload_img()){
+                    $file_name = "/upload/".$_FILES['UploadForm']['name']['imageFile'];
+                    $model->img = $file_name;
+                    $model->save();
+                }
+	        }else{
+                $model->img = 'none';
+                $model->save();
+            }
+            // Сохранение Прайс листа
+            foreach($_REQUEST['price'] as $grade_id => $price){
+                $price_model = new ItemPrice();
+                $price_model->grade_id = $grade_id;
+                $price_model->item_id = $model->id;
+                $price_model->price = $price;
+                $price_model->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);       
         } else {
             return $this->render('create', [
                 'model' => $model,
                 'cat_model' => $cat_model,
                 'file_model' => $file_model,
+                'grade_model' => $grade_model,
             ]);
         }
     }
@@ -105,13 +117,15 @@ class ItemController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id){
         $model = $this->findModel($id);
         $cat_model = Category::find()->all();
-	$file_model = new UploadForm();
+	    $file_model = new UploadForm();
+        $price_model = ItemPrice::find()->where(['item_id'=> $id])->all();
+        $grade_model = ItemGrade::find()->all();
+        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/tt.txt', print_r($price_model, 1));
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-	    if($_FILES['UploadForm']['name']['imageFile'] != '') {
+            if($_FILES['UploadForm']['name']['imageFile'] != '') {
                 $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
                 //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
                 if($file_model->upload_img()){
@@ -120,12 +134,21 @@ class ItemController extends Controller
                     $model->update();
                 }
             }
+            // Сохранение Прайс листа
+            foreach($_REQUEST['price'] as $grade_id => $price){
+                $item_price = ItemPrice::find()->where(['item_id'=> $id, 'grade_id' => $grade_id])->one();
+                $item_price->price = $price;
+                $item_price->update();
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
                 'cat_model' => $cat_model,
                 'file_model' => $file_model,
+                'price_model' => $price_model,
+                'grade_model' => $grade_model,
             ]);
         }
     }
@@ -139,6 +162,10 @@ class ItemController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        $price_model = ItemPrice::find()->where(['item_id'=> $id])->all();
+        foreach ($price_model as $k => $price){
+            $price_model[$k]->delete();
+        }
 
         return $this->redirect(['index']);
     }

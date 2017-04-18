@@ -18,25 +18,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
 	    'name',
-            [
-		'label' => 'Картинка',
-		'format' => 'raw',
-		'value' => function($data){
-		    if($data->img == "none") return '<img src="/upload/noimage.png" width=60>';
-		    return Html::img(Url::toRoute($data->img),[
-			'style' => 'width:60px;'
-		    ]);
-		},
+        [
+			'label' => 'Картинка',
+			'format' => 'raw',
+			'value' => function($data){
+				if($data->img == "none") return '<img src="/upload/noimage.png" width=60>';
+				return Html::img(Url::toRoute($data->img),[
+				'style' => 'width:60px;'
+				]);
+			},
 	    ],
            
             'manufacturer',
             'wood',
-            'wet',
-            //'size',
-            'grade',
-            'price',
-            // 'img',
-
+            'width',
+            'thickness',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
