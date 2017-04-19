@@ -34,7 +34,7 @@ class ItemGallery extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'item_id' => 'item_id',
+            'item_id' => 'ID товара',
             'img' => 'Изображение',
         ];
     }

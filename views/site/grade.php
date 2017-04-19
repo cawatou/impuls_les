@@ -70,44 +70,6 @@ if(isset($model)):?>
 				</div>
 			</div>
 
-			<div class="grade">
-				<div class="row row_top">
-					<div class="col-md-12">
-						<div class="col-md-4"></div>
-						<div class="comment_down comment_block col-md-4">
-							Эталонный сорт, исключающий какие-либо пороки. Гладкий природный узор, без -либо сучков, трещин и смоляных кармашков
-						</div>
-						<div class="col-md-4"></div>
-					</div>
-				</div>
-
-				<div class="row row_mid">
-					<div>
-						<div class="comment_left comment_block col-md-5">
-							<p>Недостаток изделий этой категории – высокая цена</p>
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="circle">Прима</div>
-					</div>
-					<div>
-						<div class="comment_right comment_block col-md-5">
-							<p>При распиле круглого леса высшего сорта процентное соотношение выхода доски соответствующей данному сорту не превышает 5-10%</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row row_btm">
-					<div class="col-md-12">
-						<div class="col-md-4"></div>
-						<div class="comment_top comment_block col-md-4">
-							Пиломатериалы такого высокого сорта обычно используются при внутренней отделке дома и имеют влажность 12-14%.
-						</div>
-						<div class="col-md-4"></div>
-					</div>
-				</div>
-			</div>
-
 			<div class="grade grade3">
 				<div class="row row_top">
 					<div class="col-md-12">

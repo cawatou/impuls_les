@@ -134,7 +134,7 @@ header .col-md-8 {
 }
 
 .item_img {
-    width: 300px;
+    width: 320px;
     height: 300px;  
 }
 
@@ -269,8 +269,8 @@ header .col-md-8 {
 }
 
 .item_img .preview_img img{
-    width: 80px;
-    height: 80px;
+    width: 93px;
+    height: 85px;
     margin: 10px 5px;
 }
 .item_img .preview_img:first-child img {
@@ -387,3 +387,10 @@ span.ui-slider-handle:active, span.ui-slider-handle:focus { outline: none; }
     display: none;
 }
 
+.btn-add_to_cart {
+    float: right;
+}
+
+.profile_pic h3 {
+    height: 25px;
+}

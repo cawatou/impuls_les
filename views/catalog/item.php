@@ -135,7 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
 											<input type="text" id="amount" readonly> мм
 										</p>
 										<div id="slider-range-max"></div>
-										<div class="col-md-6 left_range">600 мм</div>
+										<div class="col-md-6 left_range">1000 мм</div>
 										<div class="col-md-6 right_range">4000 мм</div>
 									</div>
 									<div class="col-md-7 input_values">
@@ -181,5 +181,5 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
 	</div>
 <?endif?>
-<?="<pre>".print_r($grade_model, 1);?>
+<?//="<pre>".print_r($grade_model, 1);?>
 <?//="<pre>".print_r($gallery_model, 1);?>

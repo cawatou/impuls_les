@@ -171,8 +171,15 @@ class SiteController extends AppController{
 	    $message = $message."\nEmail: ".$_REQUEST['email']; 
 	    $message = $message."\nСообщение: ".$_REQUEST['comment']; 
 	    $message = $message."\nЗаявка на заказ: ".$_REQUEST['item_name']; 
-           
-	    mail(Yii::$app->params['adminEmail'], "Заявка с сайта", $message); 
+
+        // + extra_fields
+        if($_REQUEST['grade'] != '') $message = $message."\nСортность: ".$_REQUEST['grade'];
+        if($_REQUEST['m2'] != '') $message = $message."\nм2: ".$_REQUEST['m2'];
+        if($_REQUEST['m3'] != '') $message = $message."\nм3: ".$_REQUEST['m3'];
+        if($_REQUEST['count'] != '') $message = $message."\nшт: ".$_REQUEST['count'];
+        if($_REQUEST['total_price'] != '') $message = $message."\nЦена: ".$_REQUEST['total_price'];
+
+        mail(Yii::$app->params['adminEmail'], "Заявка с сайта", $message);
 	    $model = new MailOrders();
 	    $model->name = $_REQUEST['name'];
 	    $model->item_id = $_REQUEST['item_id'];

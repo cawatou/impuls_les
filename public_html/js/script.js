@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
-    
+
     // Отправка заявки на обратный звонок
     $('.callback_btn').on('click', function(){
         $('.modal').hide();
@@ -31,10 +31,10 @@ jQuery(document).ready(function () {
 
     // Отправка заявки на обратную связь с главной страницы
     $('.btn-add_to_cart').on('click', function(){
-	var name = $(this).attr('data-value');
-	var id = $(this).attr('data-id');
-	$('.item_name').val(name);
-	$('.item_id').val(id);
+        var name = $(this).attr('data-value');
+        var id = $(this).attr('data-id');
+        $('.item_name').val(name);
+        $('.item_id').val(id);
         $('.modal').hide();
         $('.main_modal').show();
     })
@@ -42,14 +42,22 @@ jQuery(document).ready(function () {
     $('.main_modal .close').on('click', function(){
         $('.main_modal').hide()
     })
-    
-    
-     $('#order_mail').on('submit', function(e){
+
+
+    $('#order_mail').on('submit', function(e){
         e.preventDefault();
+        var grade = $('.grade option:selected').text(),
+            m2 = $('.m2').val(),
+            m3 = $('.m3').val(),
+            count = $('.count').val(),
+            total_price = $('.total_price').text();
+        var data = $('#order_mail').serialize();
+        var extra_data = '&grade='+grade+'&m2='+m2+'&m3='+m3+'&count='+count+'&total_price='+total_price;
+
         $.ajax({
             type: 'post',
             url: '/ordermail',
-            data: $('#order_mail').serialize(),
+            data: data + extra_data,
             success: function(res){
                 if(res = 'done'){
                     $('.main_modal').hide();
@@ -62,8 +70,8 @@ jQuery(document).ready(function () {
         })
 
     })
-     
-      $('#feedback').on('submit', function(e){
+
+    $('#feedback').on('submit', function(e){
         e.preventDefault();
         $.ajax({
             type: 'post',
@@ -73,7 +81,7 @@ jQuery(document).ready(function () {
                 if(res = 'done'){
                     $('.main_modal').hide();
                     $('#feedback input[type=text]').val('');
-		    $('#feedback textarea').val('');
+                    $('#feedback textarea').val('');
                     alert('Ваше сообщение отправлено');
                 }else if(res = 'error'){
                     alert('Произошла ошибка при отправке сообщения');
@@ -97,10 +105,10 @@ jQuery(document).ready(function () {
     $( function() {
         $( "#slider-range-max" ).slider({
             range: "max",
-            min: 600,
+            min: 1000,
             max: 4000,
-            value: 1200,
-            step: 100,
+            value: 1500,
+            step: 500,
             slide: function( event, ui ) {
                 $( "#amount" ).val( ui.value );
                 $('.measure').val('');

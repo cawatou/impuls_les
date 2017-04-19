@@ -17,17 +17,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-	    'name',
-        [
-			'label' => 'Картинка',
-			'format' => 'raw',
-			'value' => function($data){
-				if($data->img == "none") return '<img src="/upload/noimage.png" width=60>';
-				return Html::img(Url::toRoute($data->img),[
-				'style' => 'width:60px;'
-				]);
-			},
-	    ],
+	    	'name',
+//			[
+//				'label' => 'Картинка',
+//				'format' => 'raw',
+//				'value' => function($data){
+//					if($data->img == "none") return '<img src="/upload/noimage.png" width=60>';
+//					return Html::img(Url::toRoute($data->img),[
+//					'style' => 'width:60px;'
+//					]);
+//				},
+//			],
            
             'manufacturer',
             'wood',

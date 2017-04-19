@@ -37,7 +37,7 @@ class Item extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Название',
             'cat_id' => 'Категория',
-            'img' => 'Изображение',
+            'img' => 'Превью',
             'manufacturer' => 'Производиель',
             'wood' => 'Порода дерева',
             'width' => 'Ширина',

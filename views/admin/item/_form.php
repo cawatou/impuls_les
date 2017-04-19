@@ -10,7 +10,7 @@ use dosamigos\ckeditor\CKEditor;
 <?if(isset($cat_model)){
     // Получаем список категорий товара
     foreach($cat_model as $cat){
-	$options[$cat->id] = $cat->name;
+	    $options[$cat->id] = $cat->name;
     }
 }?>
 <div class="item-form">
@@ -23,12 +23,12 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'cat_id')->dropDownList($options);?>
 
-    <?if($model->img != 'none'):?>
-	<img height="200" src="<?=$model->img;?>">
-    <?else:?>
-	<i class="fa fa-picture-o fa-6" aria-hidden="true"></i>
-    <?endif;?>
-    <?=$form->field($file_model, 'imageFile')->fileInput()->label('[изменить]');?><br>   
+   <!-- <?/*if($model->img != 'none'):*/?>
+	    <img height="200" src="<?/*=$model->img;*/?>">
+    <?/*else:*/?>
+	    <i class="fa fa-picture-o fa-6" aria-hidden="true"></i>
+    <?/*endif;*/?>
+    --><?/*=$form->field($file_model, 'imageFile')->fileInput()->label('[изменить]');*/?><br>
    
     <?= $form->field($model, 'manufacturer')->textInput(['maxlength' => true]) ?>
 
@@ -39,43 +39,13 @@ use dosamigos\ckeditor\CKEditor;
     <?= $form->field($model, 'thickness')->textInput(['maxlength' => true]) ?>
 
 
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[0]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[0]->id?>]" value="<?=(isset($price_model[0])) ? $price_model[0]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[1]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[1]->id?>]" value="<?=(isset($price_model[1])) ? $price_model[1]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[2]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[2]->id?>]" value="<?=(isset($price_model[2])) ? $price_model[2]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[3]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[3]->id?>]" value="<?=(isset($price_model[3])) ? $price_model[3]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[4]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[4]->id?>]" value="<?=(isset($price_model[4])) ? $price_model[4]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
-    <div class="form-group field-item-thickness required">
-        <label class="control-label"><?="Цена - ".$grade_model[5]->title?></label>
-        <input type="text" class="form-control" name="price[<?=$grade_model[5]->id?>]" value="<?=(isset($price_model[5])) ? $price_model[5]->price : '' ;?>">
-        <div class="help-block"></div>
-    </div>
-
+    <?foreach($grade_model as $k => $grade):?>
+        <div class="form-group field-item-thickness required">
+            <label class="control-label"><?="Цена - ".$grade->title?></label>
+            <input type="text" class="form-control" name="price[<?=$grade->id?>]" value="<?=(isset($price_model[$k])) ? $price_model[$k]->price : '' ;?>">
+            <div class="help-block"></div>
+        </div>
+    <?endforeach?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
       
