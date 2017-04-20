@@ -159,12 +159,13 @@ $this->params['breadcrumbs'][] = $this->title;
 										<input type="hidden" name="thikness" class="thikness" value="<?=$item_model->thickness / 1000?>">
 									</div>
 									<div class="col-md-5 out_value">
-										Итого стоимость:<br>
-										<span class="total_price">0</span>  &#8381;
+										<p>Итого стоимость:</p>
+										<span class="total_price">0</span>
+										<span> &#8381;</span>
 									</div>
 								</div>
 
-								<input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart">
+								<input type="submit" data-value='<?=$item_model->name?>' data-id='<?=$item->id?>' id="send_message" value="Отправить заявку" class="btn btn-line btn-add_to_cart order_btn">
 							</div>
 						<?endif?>
 					</div>

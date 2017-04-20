@@ -63,13 +63,14 @@
 .tech_block span {
     font-size: 14px;
     margin-left: 0;
+    padding-left: 0;
 }  
 
 .tech_block .btn-line{
     margin-top: 20px;
     background: none;
     height: 40px;
-    border: 2px solid #ffd200 !important;
+    border: 3px solid #ffd200 !important;
     text-transform: none;
     color: #ffd200;
     font-size: 16px;
@@ -393,4 +394,22 @@ span.ui-slider-handle:active, span.ui-slider-handle:focus { outline: none; }
 
 .profile_pic h3 {
     height: 25px;
+}
+
+.out_value {
+    font-size: 18px;
+    line-height: 15px;
+}
+
+.out_value span {
+    font-size: 30px;
+    color: #000000;
+    font-weight: 700;
+}
+
+input.order_btn {
+    font-size: 22px;
+    color: #333 !important;
+    height: 50px !important;
+    border-width: 3px !important;
 }
