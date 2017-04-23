@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'manufacturer',
             'wood',
-            'img:image',
+            //'img:image',
         ],
     ]) ?>
 

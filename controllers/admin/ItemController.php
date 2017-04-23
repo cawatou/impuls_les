@@ -80,7 +80,7 @@ class ItemController extends Controller
 	    $file_model = new UploadForm();
 
         if ($model->load(Yii::$app->request->post())) {
-            if($_FILES['UploadForm']['name']['imageFile'] != '') {
+            /*if($_FILES['UploadForm']['name']['imageFile'] != '') {
                 $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
                 //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
                 if($file_model->upload_img()){
@@ -88,10 +88,12 @@ class ItemController extends Controller
                     $model->img = $file_name;
                     $model->save();
                 }
-	        }else{
+	    }else{
                 $model->img = 'none';
                 $model->save();
-            }
+            }*/
+            $model->img = 'none';
+            $model->save();
             // Сохранение Прайс листа
             foreach($_REQUEST['price'] as $grade_id => $price){
                 $price_model = new ItemPrice();
@@ -125,7 +127,7 @@ class ItemController extends Controller
         $grade_model = ItemGrade::find()->all();
         file_put_contents($_SERVER['DOCUMENT_ROOT'].'/tt.txt', print_r($price_model, 1));
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($_FILES['UploadForm']['name']['imageFile'] != '') {
+           /* if($_FILES['UploadForm']['name']['imageFile'] != '') {
                 $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
                 //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
                 if($file_model->upload_img()){
@@ -133,7 +135,9 @@ class ItemController extends Controller
                     $model->img = $file_name;
                     $model->update();
                 }
-            }
+            }*/
+            
+            $model->update();
             // Сохранение Прайс листа
             foreach($_REQUEST['price'] as $grade_id => $price){
                 $item_price = ItemPrice::find()->where(['item_id'=> $id, 'grade_id' => $grade_id])->one();
