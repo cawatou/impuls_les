@@ -105,7 +105,7 @@ $this->params['breadcrumbs'][] = $this->title;
 										<span class="prop col-md-6">Ширина: </span><span class="col-md-6"><?=$item_model->width?></span>
 									<?endif?>
 
-									<a href="/upload/price.pdf" download>Скачать прайс</a>
+									<a href="/upload/price.pdf" target="_blank">Скачать прайс</a>
 
 
 									<div id="calculator" class="col-md-12">
