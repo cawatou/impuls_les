@@ -294,9 +294,16 @@ header .col-md-8 {
 }
 
 .gradeP .comment_left {
-    margin-top: 31px;
-    height: 80px;
+    margin-top: 15px;
+    height: 125px;
     padding-top: 0;
+}
+
+.gradeP .comment_right {
+    height: 65px;
+    margin-top: 40px;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .grade2 .comment_left {
