@@ -81,6 +81,7 @@
 
 #mainmenu a {
     font-size: 16px;
+    padding-left: 10px;
 }
 
 .logo-lg img {
@@ -512,4 +513,8 @@ input.order_btn {
     color: #333 !important;
     height: 50px !important;
     border-width: 3px !important;
+}
+
+.item_block {
+    margin-bottom: 50px;
 }

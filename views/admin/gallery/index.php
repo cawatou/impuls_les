@@ -25,14 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',            
             'catName',
             [
-                'label' => 'Картинка',
-                'format' => 'raw',
-                'value' => function($data){
-                    return Html::img(Url::toRoute($data->src),[
-                        'style' => 'width:60px;'
-                    ]);
-                },
-            ],
+            'label' => 'Картинка',
+            'format' => 'raw',
+            'value' => function($data){
+		    return Html::img(Url::toRoute($data->src),[
+			'style' => 'width:60px;'
+		    ]);
+		},
+	    ],
             
 
             ['class' => 'yii\grid\ActionColumn',

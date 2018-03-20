@@ -1,1 +1,178 @@
-Phone: zzzzzzzzzz
+Array
+(
+    [0] => app\models\ItemPrice Object
+        (
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 58
+                    [item_id] => 12
+                    [grade_id] => 1
+                    [price] => 1250
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 58
+                    [item_id] => 12
+                    [grade_id] => 1
+                    [price] => 1250
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+        )
+
+    [1] => app\models\ItemPrice Object
+        (
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 60
+                    [item_id] => 12
+                    [grade_id] => 3
+                    [price] => 1150
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 60
+                    [item_id] => 12
+                    [grade_id] => 3
+                    [price] => 1150
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+        )
+
+    [2] => app\models\ItemPrice Object
+        (
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 61
+                    [item_id] => 12
+                    [grade_id] => 4
+                    [price] => 1000
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 61
+                    [item_id] => 12
+                    [grade_id] => 4
+                    [price] => 1000
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+        )
+
+    [3] => app\models\ItemPrice Object
+        (
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 62
+                    [item_id] => 12
+                    [grade_id] => 5
+                    [price] => 499
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 62
+                    [item_id] => 12
+                    [grade_id] => 5
+                    [price] => 499
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+        )
+
+    [4] => app\models\ItemPrice Object
+        (
+            [_attributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 63
+                    [item_id] => 12
+                    [grade_id] => 6
+                    [price] => 400
+                )
+
+            [_oldAttributes:yii\db\BaseActiveRecord:private] => Array
+                (
+                    [id] => 63
+                    [item_id] => 12
+                    [grade_id] => 6
+                    [price] => 400
+                )
+
+            [_related:yii\db\BaseActiveRecord:private] => Array
+                (
+                )
+
+            [_errors:yii\base\Model:private] => 
+            [_validators:yii\base\Model:private] => 
+            [_scenario:yii\base\Model:private] => default
+            [_events:yii\base\Component:private] => Array
+                (
+                )
+
+            [_behaviors:yii\base\Component:private] => Array
+                (
+                )
+
+        )
+
+)

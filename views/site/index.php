@@ -84,7 +84,7 @@ if(isset($igallery_model)){
                         </div>
 						<?if(isset($item_model)):?>
 							<?foreach($item_model as $item):?>
-								<div class="col-md-3" style="background-size: cover;">
+								<div class="col-md-3 item_block" style="background-size: cover;">
 									<a href="/catalog/<?=$cat_link[$item->cat_id]?>/<?=$item->id?>">
 										<div class="profile_pic">
 											<figure class="pic-hover hover-scale mb30 main_item_img">
@@ -96,7 +96,6 @@ if(isset($igallery_model)){
 											</figure>
 
 											<h3><?=$item->name?></h3>
-											<span class="tiny-border"></span>
 										</div>
 									</a>
 								</div>

@@ -28,6 +28,7 @@ class CatalogController extends AppController{
             'item_model' => $item_model,
             'cat_model' => $cat_model,
             'igallery_model' => $igallery_model,
+            'allitem_model' => $item_model,
         ]);
     }
     
@@ -38,11 +39,15 @@ class CatalogController extends AppController{
             ->where('category.link = :link AND item.cat_id = category.id', ["link" => $category])
             ->all();
             
-        $cat_model = Category::find()->all();    
+        $cat_model = Category::find()->all();
+        $igallery_model = ItemGallery::find()->all();
+        $allitem_model = Item::find()->all();
             
         return $this->render('catalog', [
             'item_model' => $item_model, 
             'cat_model' => $cat_model,
+            'igallery_model' => $igallery_model,
+            'allitem_model' => $allitem_model,
         ]);
     }
 

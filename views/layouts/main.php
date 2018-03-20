@@ -77,7 +77,7 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                         <nav>
                             <ul id="mainmenu">
                                 <li><a href="/about">О компании</a></li>
-                                <li><a href="/catalog/">Каталог</a></li>
+                                <li><a href="/catalog/">Наша продукция</a></li>
                                 <li><a href="/discount">Акции и скидки</a></li>
                                 <li><a href="/gallery">Галерея</a></li>
                                 <li><a href="/grade">Виды сортности</a></li>
