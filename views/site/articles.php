@@ -3,68 +3,91 @@
 use yii\widgets\LinkPager;
 
 $this->title = 'Cтатьи';
-$month = Array("01"=>"Янв", "02"=>"Фев", "03"=>"Мар", "04"=>"Апр", "05"=>"Май", "06"=>"Июн", "07"=>"Июл", "08"=>"Авг", "09"=>"Сен", "10"=>"Окт", "11"=>"Ноя", "12"=>"Дек");
+$month = Array("01" => "Янв", "02" => "Фев", "03" => "Мар", "04" => "Апр", "05" => "Май", "06" => "Июн", "07" => "Июл", "08" => "Авг", "09" => "Сен", "10" => "Окт", "11" => "Ноя", "12" => "Дек");
 ?>
 
+<section id="subheader" data-stellar-background-ratio=".3"
+         style="background-size: cover; background-position: 50% 0%;">
+    <div class="container" style="background-size: cover;">
+        <div class="row" style="background-size: cover;">
 
-<section id="subheader" data-stellar-background-ratio=".3">
-    <div class="container">
-	<div class="row">
-	    <div class="col-md-12">
-		<h1><?=$this->title?></h1>
-		<div class="small-border-deco"><span></span></div>
-		<ul class="crumb">
-		    <li><a href="/">Главная</a></li>
-		    <li class="sep"></li>
-		    <li><?=$this->title?></li>
-		</ul>
-	    </div>
-	</div>
+        </div>
     </div>
 </section>
 
- <div id="content">
-    <div class="container">
-	<div class="row">
-	    <div class="col-md-12">
-		<ul class="blog-list">
-		    <?if(isset($article_model)):?>
-			<?foreach($article_model as $article):
-			    $date = explode("-", $article->date)?>
-			    <li>
-				<div class="post-content">
-				    <div class="post-image">
-					 <?if($article->img == 'none'):?>
-					    <img height="200" src="/upload/noimage.png">
-					<?else:?>
-					    <img src="<?=$article->img?>" alt="" />
-					<?endif?>    
-				    </div>
 
-				    <div class="date-box">
-					<div class="day"><?=$date[2]?></div>
-					<div class="month"><?=$month[$date[1]]?></div>
-				    </div>
+<div id="content" class="no-bottom no-top">
+    <section id="section-news" data-bgcolor="#f5f5f5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 bread_block">
+                    <a href="/">Главная</a>
+                    <h2><?=$this->title ?></h2>
+                </div>
 
-				    <div class="post-text">
-					<h3><a href="css/#"><?=$article->title?></a></h3>
-					<p class="text_descr"><?=$article->description?></p>
-				    </div>
+                <div id="sidebar" class="col-md-3">
+                    <div class="widget widget_category">
+                        <ul>
+                            <? if (isset($cat_model)): ?>
+                                <? foreach ($cat_model as $cat): ?>
+                                    <li class='parent_cat'>
+                                        <a href="/catalog/<?= $cat->link ?>"><?= $cat->name ?></a>
+                                        <ul>
+                                            <? foreach ($allitem_model as $item): ?>
+                                                <? if ($item->cat_id == $cat->id): ?>
+                                                    <li class='chld_cat'><a
+                                                            href="/catalog/<?= $cat->link ?>/<?= $item->id ?>"><?= $item->name ?></a>
+                                                    </li>
+                                                <? endif ?>
+                                            <? endforeach ?>
+                                        </ul>
+                                    </li>
+                                <? endforeach ?>
+                            <? endif ?>
+                        </ul>
+                    </div>
+                </div>
 
-				    <a href="/article/<?=$article->id?>" class="btn-more">Читать</a>
-				</div>
-			    </li>
-			<?endforeach?>    
-		    <?endif?>   
-		</ul>
-		
-		<div class="text-center">
-		    <?echo LinkPager::widget([
-		    'pagination' => $pages,
-		]);?>
-		</div>
-	    </div>
-
-	</div>
-    </div>
+                <div class="col-md-9">
+                    <ul class="blog-list">
+                        <? if (isset($article_model)): ?>
+                            <? foreach ($article_model as $article):
+                                $date = explode("-", $article->date) ?>
+                                <li>
+                                    <div class="post-content">
+                                        <div class="post-image">
+                                            <? if ($article->img == 'none'):?>
+                                                <img height="200" src="/upload/noimage.png">
+                                            <? else:?>
+                                                <img src="<?= $article->img ?>" alt=""/>
+                                            <? endif ?>
+                                        </div>
+    
+                                        <div class="date-box">
+                                            <div class="day"><?= $date[2] ?></div>
+                                            <div class="month"><?= $month[$date[1]] ?></div>
+                                        </div>
+    
+                                        <div class="post-text">
+                                            <h3><a href="css/#"><?= $article->title ?></a></h3>
+                                            <p class="text_descr"><?= $article->description ?></p>
+                                        </div>
+    
+                                        <a href="/article/<?= $article->id ?>" class="btn-more">Читать</a>
+                                    </div>
+                                </li>
+                            <? endforeach ?>
+                        <? endif ?>
+                    </ul>
+    
+                    <div class="text-center">
+                        <? echo LinkPager::widget([
+                            'pagination' => $pages,
+                        ]); ?>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
 </div>

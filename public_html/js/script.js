@@ -42,7 +42,6 @@ jQuery(document).ready(function () {
             function () { // после выполнения предъидущей анимации
                 $('.main_modal').css('display', 'block').animate({opacity: 1, top: '50%'}, 200);
             });
-        //$('.main_modal').show();
     })
 
     /*$('.main_modal .close').on('click', function(){
@@ -56,9 +55,10 @@ jQuery(document).ready(function () {
             m2 = $('.m2').val(),
             m3 = $('.m3').val(),
             count = $('.count').val(),
-            total_price = $('.total_price').text();
+            total_price = $('.total_price').text(),
+            length = $('#amount').val();
         var data = $('#order_mail').serialize();
-        var extra_data = '&grade=' + grade + '&m2=' + m2 + '&m3=' + m3 + '&count=' + count + '&total_price=' + total_price;
+        var extra_data = '&grade=' + grade + '&m2=' + m2 + '&m3=' + m3 + '&count=' + count + '&lenght=' + length + '&total_price=' + total_price;
 
         $.ajax({
             type: 'post',

@@ -63,7 +63,7 @@ class CatalogController extends AppController{
             ->all();
 
 	    $cat_model = Category::find()->all();
-	    $all_item = Item::find()->all();
+	    $allitem_model = Item::find()->all();
         // Отправка формы из карточки товара
         $form_model = new ContactForm();
         if ($form_model->load(Yii::$app->request->post()) && $form_model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -77,7 +77,7 @@ class CatalogController extends AppController{
             'price_model' => $price_model,
             'grade_model' => $grade_model,
             'cat_model' => $cat_model,
-            'all_item' => $all_item,
+            'allitem_model' => $allitem_model,
         ]);
     }
 }
