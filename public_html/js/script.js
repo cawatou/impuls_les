@@ -107,8 +107,8 @@ jQuery(document).ready(function () {
             range: "max",
             min: 1000,
             max: 4000,
-            value: 1500,
-            step: 500,
+            value: 1000,
+            step: 1000,
             slide: function( event, ui ) {
                 $( "#amount" ).val( ui.value );
                 $('.measure').val('');
