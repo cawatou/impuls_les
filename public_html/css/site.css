@@ -72,7 +72,6 @@
     height: 40px;
     border: 3px solid #ffd200 !important;
     text-transform: none;
-    color: #ffd200;
     font-size: 16px;
 }  
 .tech_block .btn:focus {
@@ -146,7 +145,7 @@ header .col-md-8 {
 }
 
 .chld_cat  a{
-    color: #606060 !important;
+    color: #000 !important;
     font-weight: 400;
 }
 
@@ -166,7 +165,7 @@ header .col-md-8 {
     border-radius: 12px;
     text-align: center;
     padding: 10px 20px;
-    color: #333;
+    color: #000;
     font-size: 14px;
     font-style: italic;
 }
@@ -253,7 +252,7 @@ header .col-md-8 {
     text-align: center;
     font-size: 30px;
     font-weight: 700;
-    color: #333;
+    color: #000;
     width: 147px;
     height: 147px;
     border-width: 3px;
@@ -510,11 +509,28 @@ span.ui-slider-handle:active, span.ui-slider-handle:focus { outline: none; }
 
 input.order_btn {
     font-size: 22px;
-    color: #333 !important;
+    color: #000 !important;
     height: 50px !important;
     border-width: 3px !important;
 }
 
 .item_block {
     margin-bottom: 50px;
+}
+
+/*==============================================================*/
+
+.address-style-2, .address-style-2 a, .address-style-2 span strong, body.de_light {
+    color: #000;
+}
+
+#section-news ul {
+    list-style: none;
+}
+
+#section-news ul li:before {
+    content: "-";
+    font-weight: 700;
+    margin-right: 5px;
+    float: left;
 }
