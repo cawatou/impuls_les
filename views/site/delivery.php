@@ -30,7 +30,17 @@ if(isset($model)):?>
 
 		<div class="col-md-12">
 		    <h2><?=$model->title?><span class="tiny-border"></span></h2>
-		    <div class="text_descr"><?=$model->description?></div>
+		    <div class="text_descr">
+				<?=$model->description?>
+				<p>
+					<span style="color:#333333">
+						<span style="font-size:16px">
+							Более точную информацию о доставке уточняйте по телефону:
+							<span class="ya-phone">8 (812) 922-11- 20</span>
+						</span>
+					</span>
+				</p>
+			</div>
 		</div>
 	    </div>
 	</div>

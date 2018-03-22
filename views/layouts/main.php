@@ -51,7 +51,12 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                             
                         </div>
                         <div class="col-md-4 text-right">
-			   <div class="col phone"><span class="id-color"><i class="fa fa-phone"></i></span><?=$contact_model->phone?></div>	
+
+			               <div class="col phone">
+                               <span class="id-color"><i class="fa fa-phone"></i></span>
+                               <span class="ya-phone"><?=$contact_model->phone?></span>
+                           </div>
+
                            <div class="callback_btn"><span class="id-color"<p class="callback_btn">Обратный звонок</p></div>
                         </div>
                     </div>
@@ -104,12 +109,12 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
 
 			<form id="callbacksend" action="/callbacksend" method="post" role="form">
 			    <div class="form-group field-contactform-name required">
-				<label class="control-label" for="contactform-name">Имя</label>
-				<input type="text" id="contactform-name" class="form-control" name="name" autofocus="">
+				<label class="control-label" for="contactform-name">Имя *</label>
+				<input required type="text" id="contactform-name" class="form-control" name="name" autofocus="">
 			    </div>
 			    <div class="form-group field-contactform-name required">
-				<label class="control-label" for="contactform-phone">Телефон</label>
-				<input type="text" id="contactform-phone" class="form-control" name="phone" autofocus="">
+				<label class="control-label" for="contactform-phone">Телефон *</label>
+				<input required type="text" id="contactform-phone" class="form-control" name="phone" autofocus="">
 			    </div>
 			    <input type="hidden" name="_csrf" value="Q3Y4Zm12RmsnWwAcPTMALBEHUBUdPBw4LUFLIjg6JA8iJUwwB0QuEQ==">
 			    <div class="modal-footer">
@@ -182,8 +187,15 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                         <div class="widget widget-address">
                             <address>
                                 <span><?=$contact_model->address?></span>
-                                <span><strong>Телефон:</strong> <?=$contact_model->phone?></span>
-                                <span><strong>Email:</strong><a href="mailto:<?=$contact_model->email?>"><?=$contact_model->email?></a></span>
+                                <span>
+                                    <strong>Телефон:</strong> 
+                                    <b class="ya-phone"><?=$contact_model->phone?></b>
+                                </span>
+                                    
+                                <span>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:<?=$contact_model->email?>"><?=$contact_model->email?></a>
+                                </span>
                                 
                             </address>
                         </div>
