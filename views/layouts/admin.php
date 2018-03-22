@@ -165,7 +165,7 @@ desired effect
                         ["label" => "Товар", "url" => ["admin/item"], "icon" => "plus-square"],
                         ["label" => "Галерея товара", "url" => ["admin/itemgallery"], "icon" => "th-large"],
                         ["label" => "Фотогалерея", "url" => ["admin/gallery"], "icon" => "th-large"],
-                        //["label" => "Статьи", "url" => ["admin/articles"], "icon" => "th-large"],
+                        ["label" => "Статьи", "url" => ["admin/articles"], "icon" => "th-large"],
                         ["label" => "Слайдер на главной", "url" => ["admin/slider"], "icon" => "th-large"],
                         ["label" => "Контакты", "url" => ["admin/contacts"], "icon" => "list"],               
                         

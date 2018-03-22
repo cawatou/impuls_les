@@ -107,15 +107,15 @@ class SiteController extends AppController{
             'gallery_model' => $gallery_model,
         ]);
     }
-/*
+
     public function actionArticles(){
         $query = Articles::find()->orderBy(['id' => SORT_DESC]);
         
         $countQuery = clone $query;
-	$pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
-	$article_model = $query->offset($pages->offset)
-	    ->limit($pages->limit)
-	    ->all();
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
+        $article_model = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
         return $this->render('articles', [
             'article_model' => $article_model,
             'pages' => $pages,
@@ -129,7 +129,7 @@ class SiteController extends AppController{
             'article_model' => $article_model,
         ]);
     }
-  */  
+  
     
     public function actionContacts(){
         $contact_model = Contacts::find()->one();

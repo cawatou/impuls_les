@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+
 /**
  * ArticlesController implements the CRUD actions for Articles model.
  */
@@ -67,16 +68,16 @@ class ArticlesController extends Controller
     public function actionCreate()
     {
         $model = new Articles();
-	$file_model = new UploadForm();
-	
+        $file_model = new UploadForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-	   $model->date = date('Y-m-d');
-	   if($_FILES['UploadForm']['name']['imageFile'] != '') {
+            $model->date = date('Y-m-d');
+            if ($_FILES['UploadForm']['name']['imageFile'] != '') {
                 $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
                 //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
-                if($file_model->upload_articles()){
-                    $file_name = "/upload/articles/".$_FILES['UploadForm']['name']['imageFile'];
-                    $model->img = $file_name;                    
+                if ($file_model->upload_articles()) {
+                    $file_name = "/upload/articles/" . $_FILES['UploadForm']['name']['imageFile'];
+                    $model->img = $file_name;
                 }
             }
             $model->update();
@@ -98,18 +99,18 @@ class ArticlesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-	$file_model = new UploadForm();
-	
+        $file_model = new UploadForm();
+
         if ($model->load(Yii::$app->request->post())) {
-	    if($_FILES['UploadForm']['name']['imageFile'] != '') {
-		$file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
-		//file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
-		if($file_model->upload_gallary()){
-		    $file_name = "/upload/articles/".$_FILES['UploadForm']['name']['imageFile'];
-		    $model->img = $file_name;
-		    $model->save();
-		}
-	    }
+            if ($_FILES['UploadForm']['name']['imageFile'] != '') {
+                $file_model->imageFile = UploadedFile::getInstance($file_model, 'imageFile');
+                //file_put_contents($_SERVER['DOCUMENT_ROOT'].'/file_model_1.txt', print_r($file_model, 1));
+                if ($file_model->upload_articles()) {
+                    $file_name = "/upload/articles/" . $_FILES['UploadForm']['name']['imageFile'];
+                    $model->img = $file_name;
+                    $model->save();
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

@@ -24,6 +24,17 @@ class UploadForm extends Model
         ];
     }
 
+    public function upload_articles(){
+        if ($this->validate()) {
+            $this->imageFile->saveAs('upload/articles/'. $this->imageFile->baseName .'.' . $this->imageFile->extension);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // Переписать все вызовы на upload (Нижние удалить)
+    
+    
     public function upload_img(){
         if ($this->validate()) {
             $this->imageFile->saveAs('upload/' . $this->imageFile->baseName .'.' . $this->imageFile->extension);
@@ -51,6 +62,8 @@ class UploadForm extends Model
             return false;
         }
     }
+    
+    
     
 }
 ?>
