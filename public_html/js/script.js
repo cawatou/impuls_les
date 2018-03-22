@@ -1,14 +1,22 @@
 jQuery(document).ready(function () {
+    $('.modal .close').on('click', function(){
+        $('.modal').animate({opacity: 0, top: '45%'}, 200,  // плавно меняем прозрачность на 0 и одновременно двигаем окно вверх
+            function(){ // после анимации
+                $(this).css('display', 'none'); // делаем ему display: none;
+                $('#overlay').fadeOut(400); // скрываем подложку
+            }
+        );
+    })
 
     // Отправка заявки на обратный звонок
     $('.callback_btn').on('click', function(){
         $('.modal').hide();
-        $('.callback_modal').show();
+        $('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
+            function(){ // после выполнения предъидущей анимации
+                $('.callback_modal').css('display', 'block').animate({opacity: 1, top: '50%'}, 200);
+            });       
     })
 
-    $('.callback_modal .close').on('click', function(){
-        $('.callback_modal').hide()
-    })
 
     $('#callbacksend').on('submit', function(e){
         e.preventDefault();
@@ -18,7 +26,7 @@ jQuery(document).ready(function () {
             data: $('#callbacksend').serialize(),
             success: function(res){
                 if(res = 'done'){
-                    $('.callback_modal').hide();
+                    $('.modal').hide();
                     $('.callback_modal input[type=text]').val('');
                     alert('Ваше сообщение отправлено');
                 }else if(res = 'error'){
@@ -36,12 +44,16 @@ jQuery(document).ready(function () {
         $('.item_name').val(name);
         $('.item_id').val(id);
         $('.modal').hide();
-        $('.main_modal').show();
+        $('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
+            function(){ // после выполнения предъидущей анимации
+                $('.main_modal').css('display', 'block').animate({opacity: 1, top: '50%'}, 200);
+            });
+        //$('.main_modal').show();
     })
 
-    $('.main_modal .close').on('click', function(){
+    /*$('.main_modal .close').on('click', function(){
         $('.main_modal').hide()
-    })
+    })*/
 
 
     $('#order_mail').on('submit', function(e){

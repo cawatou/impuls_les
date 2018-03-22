@@ -265,7 +265,7 @@ jQuery(document).ready(function () {
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/44551617" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
+<div id="overlay"></div>
 </body>
 </html>
 <?php $this->endPage() ?>
