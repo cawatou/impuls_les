@@ -180,39 +180,13 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
     <?= $content ?>
 
     <!-- footer begin -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="/images/logo.png" class="logo-small" alt=""><br>
-                </div>
-
-                <div class="col-md-4">
-
-                </div>
-
-                <div class="col-md-4">
-                    <h3>Контакты</h3>
-                    <div class="widget widget-address">
-                        <address>
-                            <span><?= $contact_model->address ?></span>
-                                <span>
-                                    <strong>Телефон:</strong> 
-                                    <b class="ya-phone"><?= $contact_model->phone ?></b>
-                                </span>
-                                    
-                                <span>
-                                    <strong>Email:</strong>
-                                    <a href="mailto:<?= $contact_model->email ?>"><?= $contact_model->email ?></a>
-                                </span>
-
-                        </address>
-                    </div>
+    <footer>       
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 line_top"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="subfooter">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

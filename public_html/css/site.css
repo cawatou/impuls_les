@@ -103,7 +103,7 @@ header .col-md-8 {
 .text_descr {
     font-size: 16px;
     padding-top: 20px;
-    padding-left: 10px;
+    padding-left: 10px !important;
 }
 
 .item_img img {
@@ -586,19 +586,45 @@ input.order_btn {
     padding-bottom: 125px !important;
 }
 section {
-    padding: 20px 0 80px 0 !important;
+    padding: 20px 0 0 0 !important;
 }
 
 .blog-list .post-image {
-    height: 380px;
+    width: 100% !important;
 }
 
 .blog-list .post-image img {
-    width: auto !important;
+    width: 100%;
 }
 
 
 .products {
     margin-top: 30px;
     margin-left: 10px;
+}
+
+.blog-list .post-text {
+    padding-left: 0;
+}
+
+.blog-list .btn-more {
+    font-weight: 400;
+}
+
+.de_light .blog-list li {
+    border-bottom: none;
+}
+
+footer {
+    background: white;
+}
+
+.subfooter .line_top{
+    border-top: 1px solid #E9E9E9;
+    padding: 0;
+    margin: 0 20px 30px 20px;
+}
+
+.subfooter, #section-news {
+    background-color: white !important;
 }

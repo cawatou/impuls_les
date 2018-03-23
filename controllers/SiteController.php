@@ -141,9 +141,12 @@ class SiteController extends AppController {
 
     public function actionArticle($id){
         $article_model = Articles::findOne($id);
-
+        $cat_model = Category::find()->all();
+        $allitem_model = Item::find()->all();
         return $this->render('article_detail', [
             'article_model' => $article_model,
+            'cat_model' => $cat_model,
+            'allitem_model' => $allitem_model
         ]);
     }
 

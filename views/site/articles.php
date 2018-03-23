@@ -49,7 +49,7 @@ $month = Array("01" => "Янв", "02" => "Фев", "03" => "Мар", "04" => "А
                 </div>
 
                 <div class="col-md-9">
-                    <ul class="blog-list">
+                    <ul class="blog-list text_descr">
                         <? if (isset($article_model)): ?>
                             <? foreach ($article_model as $article):
                                 $date = explode("-", $article->date) ?>
@@ -62,18 +62,12 @@ $month = Array("01" => "Янв", "02" => "Фев", "03" => "Мар", "04" => "А
                                                 <img src="<?= $article->img ?>" alt=""/>
                                             <? endif ?>
                                         </div>
-    
-                                        <div class="date-box">
-                                            <div class="day"><?= $date[2] ?></div>
-                                            <div class="month"><?= $month[$date[1]] ?></div>
-                                        </div>
-    
+
                                         <div class="post-text">
                                             <h3><a href="css/#"><?= $article->title ?></a></h3>
-                                            <p class="text_descr"><?= $article->description ?></p>
                                         </div>
     
-                                        <a href="/article/<?= $article->id ?>" class="btn-more">Читать</a>
+                                        <a href="/article/<?= $article->id ?>" class="btn-more">Читать далее</a>
                                     </div>
                                 </li>
                             <? endforeach ?>
