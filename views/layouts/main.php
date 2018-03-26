@@ -191,8 +191,16 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                     <div class="col-md-6">
                         © Copyright 2016 - 2018 "Импульс Лес"
                     </div>
-                    <div class="col-md-6 text-right">
-
+                    <div class="col-md-6 text-right right_footer">
+                        <div class="col-md-4">
+                            <p>+7 (812) 922-11-20</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>impuls-les@mail.ru</p>
+                        </div>
+                        <div class="callback_btn col-md-4">
+                            <p>Обратный звонок</p>
+                        </div>
                     </div>
                 </div>
             </div>

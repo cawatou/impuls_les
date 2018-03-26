@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </section>
 
 
-<div id="content" class="no-bottom no-top">
+<div id="content" class="no-bottom no-top contact_page">
     <section id="section-news" data-bgcolor="#f5f5f5">
         <div class="container">
             <div class="row">
@@ -56,44 +56,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <div class="col-md-9">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="de_tab tab_style_2">
         
                             <div class="de_tab_content tc_style-1">
         
                                 <div id="tab1">
-        
                                     <div class="row">
                                         <? if (isset($contact_model)): ?>
-                                            <div class="col-md-6">
-                                                <div class="map-container">
-                                                    <?= $contact_model->map ?>
-                                                </div>
-                                            </div>
-        
-                                            <div class="col-md-6">
-        
-                                                <address class="address-style-2">
-                                                    <span><strong>Адрес:</strong><?= $contact_model->address ?></span>
-                                                    <span>
-                                                        <strong>Телефон:</strong>
-                                                        <span class="ya-phone"><?= $contact_model->phone ?></span>
-                                                    </span>
-                                                    <span><strong>Email:</strong><a
-                                                            href="mailto:<?= $contact_model->email ?>"><?= $contact_model->email ?></a></span>
-                                                </address>
+                                            <div class="map-container">
+                                                <?= $contact_model->map ?>
                                             </div>
                                         <? endif ?>
                                     </div>
-        
                                 </div>
-        
                             </div>
-        
+                            <address class="address-style-2">
+                                <p><?= $contact_model->address ?></p>
+                                <p class="ya-phone"><?= $contact_model->phone ?></p>
+                                <p><?= $contact_model->email ?></p>
+                            </address>
                         </div>
                     </div>
         
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="padding30" data-bgcolor="#f5f5f5">
                             <h3>Напишите нам
                                 <span class="tiny-border"></span>

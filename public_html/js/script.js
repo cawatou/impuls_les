@@ -1,4 +1,24 @@
 jQuery(document).ready(function () {
+    drawSeparateLine();
+    function drawSeparateLine() {
+        var menu_height = $('#sidebar').height();
+        var content_height = $('#content .col-md-9').height();
+
+        if (content_height > menu_height) {
+            $('#content .col-md-9').addClass('content_separate');
+        }
+        else $('#sidebar').addClass('menu_separate');
+
+
+        //Active menu
+        var path = location.pathname;
+        if($('a[href="'+path+'"]').parents().hasClass("chld_cat")){
+            $('a[href="'+path+'"]').parents(".chld_cat").addClass('this_current');
+        }else{
+            $('a[href="'+path+'"]').addClass('current_parent');
+        }
+    }
+
     $('.modal .close').on('click', function () {
         modal_close();
     })
@@ -37,7 +57,7 @@ jQuery(document).ready(function () {
         var id = $(this).attr('data-id');
         $('.item_name').val(name);
         $('.item_id').val(id);
-        modal_close();
+        $('.modal').hide();
         $('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
             function () { // после выполнения предъидущей анимации
                 $('.main_modal').css('display', 'block').animate({opacity: 1, top: '50%'}, 200);

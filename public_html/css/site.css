@@ -146,6 +146,10 @@ header .col-md-8 {
     font-weight: 700;
 }
 
+.chld_cat:before {
+    content: "— ";
+}
+
 .chld_cat  a{
     color: #000 !important;
     font-weight: 400;
@@ -580,7 +584,6 @@ input.order_btn {
 }
 
 #sidebar {
-    border-right: 1px solid #E9E9E9;
     padding-right: 0;
     padding-top: 20px;
 }
@@ -622,6 +625,10 @@ footer {
     background: white;
 }
 
+.subfooter {
+    padding:0 0 10px 0;
+}
+
 .subfooter .line_top{
     border-top: 1px solid #E9E9E9;
     padding: 0;
@@ -634,4 +641,44 @@ footer {
 
 #slider-range-max:hover, .ui-slider-handle:hover {
     cursor: pointer;
+}
+
+.right_footer p {
+    font-size: 16px;
+}
+
+.right_footer .callback_btn p:hover {
+    text-decoration: underline;
+}
+
+.content_separate {
+    border-left: 1px solid #E9E9E9;
+}
+
+.menu_separate {
+    border-right: 1px solid #E9E9E9;
+}
+
+.container ol li {
+    list-style: decimal;
+}
+
+
+.widget_category .this_current {
+    width: fit-content;
+    border: 2px solid #ffd200 !important;
+    padding: 8px 12px;
+}
+
+.widget_category .this_current:before {
+    content: "";
+}
+
+.widget_category .current_parent {
+    border: 2px solid #ffd200 !important;
+    padding: 8px 12px;
+}
+
+.contact_page .padding30 {
+    margin-top: 30px;
 }
