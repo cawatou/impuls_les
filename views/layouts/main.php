@@ -87,7 +87,6 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                         <ul id="mainmenu">
                             <li><a href="/about">О компании</a></li>
                             <li><a href="/catalog/">Наша продукция</a></li>
-                            <li><a href="/discount">Акции и скидки</a></li>
                             <li><a href="/articles">Статьи</a></li>
                             <li><a href="/grade">Виды сортности</a></li>
                             <li><a href="/delivery">Доставка и оплата</a></li>
@@ -190,7 +189,7 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        &copy; Copyright 2016 - Импульс Леса
+                        © Copyright 2016 - 2018 "Импульс Лес"
                     </div>
                     <div class="col-md-6 text-right">
 

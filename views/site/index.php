@@ -81,7 +81,7 @@ if (isset($igallery_model)) {
             <div class="row wow fadeInUp">
 
                 <div class="col-md-12">
-                    <h2>Каталог<span class="tiny-border"></span></h2>
+                    <h2>Наша продукция<span class="tiny-border"></span></h2>
                 </div>
                 <? if (isset($item_model)): ?>
                     <? foreach ($item_model as $item): ?>

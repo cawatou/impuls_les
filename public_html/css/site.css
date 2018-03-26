@@ -531,9 +531,12 @@ input.order_btn {
     padding-left: 0;
 }
 
+.text_descr h3 {
+    font-size: 22px;
+}
+
 .text_descr ul li:before {
-    content: "-";
-    font-weight: 700;
+    content: "—";
     margin-right: 5px;
     float: left;
 }
@@ -627,4 +630,8 @@ footer {
 
 .subfooter, #section-news {
     background-color: white !important;
+}
+
+#slider-range-max:hover, .ui-slider-handle:hover {
+    cursor: pointer;
 }

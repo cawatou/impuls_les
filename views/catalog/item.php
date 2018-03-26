@@ -183,7 +183,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <? endif ?>
                             </div>
                         </div>
-                        <div class="text_descr"><?=$item_model->description?></div>
+                        <div class="text_descr">
+                            <h3>Описание</h3>
+                            <?=$item_model->description?>
+                        </div>
                     </div>
 
                 </div>

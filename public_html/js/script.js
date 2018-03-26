@@ -123,7 +123,20 @@ jQuery(document).ready(function () {
             }
         });
         $("#amount").val($("#slider-range-max").slider("value"));
-    });
+    })
+    .each(function() {
+        // var steps = 3;
+        // console.log(steps);
+        // for (var i = 0; i <= steps; i++) {
+        //
+        //     // Create a new element and position it with percentages
+        //     var el = $('<label>|</label>').css('left', (i/steps*100) + '%');
+        //
+        //     // Add the element inside #slider
+        //     $("#slider-range-max").append(el);
+        //
+        // }
+    });;
 
     // Фильтр ввода в input (только цифры)
     $('.measure').bind("change keyup input click", function () {
@@ -139,6 +152,7 @@ jQuery(document).ready(function () {
 $('.grade').on('change', function () {
     var id = $(this).val();
     var price_list = [];
+    console.log(id);
     $("#price_list option").each(function () {
         var key = $(this).val();
         var value = $(this).text();
