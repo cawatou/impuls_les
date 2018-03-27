@@ -125,7 +125,8 @@ header .col-md-8 {
 }
 
 #logo img {
-    width: 174px;
+    width: 334px;
+    margin-top: 6px;
 }
 
 #contactform-body {
@@ -681,4 +682,8 @@ footer {
 
 .contact_page .padding30 {
     margin-top: 30px;
+}
+
+#calculator .grade {
+    margin-top: 0;
 }

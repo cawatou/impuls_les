@@ -12,10 +12,10 @@ jQuery(document).ready(function () {
 
         //Active menu
         var path = location.pathname;
-        if($('a[href="'+path+'"]').parents().hasClass("chld_cat")){
-            $('a[href="'+path+'"]').parents(".chld_cat").addClass('this_current');
-        }else{
-            $('a[href="'+path+'"]').addClass('current_parent');
+        if ($('a[href="' + path + '"]').parents().hasClass("chld_cat")) {
+            $('a[href="' + path + '"]').parents(".chld_cat").addClass('this_current');
+        } else {
+            $('a[href="' + path + '"]').addClass('current_parent');
         }
     }
 
@@ -43,6 +43,7 @@ jQuery(document).ready(function () {
                 if (res = 'done') {
                     modal_close();
                     $('.callback_modal input[type=text]').val('');
+                    yaCounter44551617.reachGoal('call');
                     alert('Ваше сообщение отправлено');
                 } else if (res = 'error') {
                     alert('Произошла ошибка при отправке сообщения');
@@ -85,7 +86,8 @@ jQuery(document).ready(function () {
             url: '/ordermail',
             data: data + extra_data,
             success: function (res) {
-                if (res = 'done') { 
+                if (res = 'done') {
+                    yaCounter44551617.reachGoal('order');
                     modal_close();
                     $('.main_modal input[type=text]').val('');
                     alert('Ваше сообщение отправлено');
@@ -100,23 +102,24 @@ jQuery(document).ready(function () {
     $('#feedback').on('submit', function (e) {
         e.preventDefault();
         modal_close();
-        /*
-         $.ajax({
-         type: 'post',
-         url: '/feedback',
-         data: $('#feedback').serialize(),
-         success: function(res){
-         if(res = 'done'){
-         $('.main_modal').hide();
-         $('#feedback input[type=text]').val('');
-         $('#feedback textarea').val('');
-         alert('Ваше сообщение отправлено');
-         }else if(res = 'error'){
-         alert('Произошла ошибка при отправке сообщения');
-         }
-         }
-         })
-         */
+
+        $.ajax({
+            type: 'post',
+            url: '/feedback',
+            data: $('#feedback').serialize(),
+            success: function (res) {
+                if (res = 'done') {
+                    yaCounter44551617.reachGoal('feedback');
+                    $('.main_modal').hide();
+                    $('#feedback input[type=text]').val('');
+                    $('#feedback textarea').val('');
+                    alert('Ваше сообщение отправлено');
+                } else if (res = 'error') {
+                    alert('Произошла ошибка при отправке сообщения');
+                }
+            }
+        })
+         
     })
 
 
@@ -144,19 +147,20 @@ jQuery(document).ready(function () {
         });
         $("#amount").val($("#slider-range-max").slider("value"));
     })
-    .each(function() {
-        // var steps = 3;
-        // console.log(steps);
-        // for (var i = 0; i <= steps; i++) {
-        //
-        //     // Create a new element and position it with percentages
-        //     var el = $('<label>|</label>').css('left', (i/steps*100) + '%');
-        //
-        //     // Add the element inside #slider
-        //     $("#slider-range-max").append(el);
-        //
-        // }
-    });;
+        .each(function () {
+            // var steps = 3;
+            // console.log(steps);
+            // for (var i = 0; i <= steps; i++) {
+            //
+            //     // Create a new element and position it with percentages
+            //     var el = $('<label>|</label>').css('left', (i/steps*100) + '%');
+            //
+            //     // Add the element inside #slider
+            //     $("#slider-range-max").append(el);
+            //
+            // }
+        });
+    ;
 
     // Фильтр ввода в input (только цифры)
     $('.measure').bind("change keyup input click", function () {
