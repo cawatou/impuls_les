@@ -21,7 +21,8 @@ class CatalogController extends AppController{
 
     public function actionIndex(){
         $item_model = Item::find()->all();
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $igallery_model = ItemGallery::find()->all();
 
         return $this->render('catalog', [
@@ -38,8 +39,9 @@ class CatalogController extends AppController{
             ->from('item, category')
             ->where('category.link = :link AND item.cat_id = category.id', ["link" => $category])
             ->all();
-            
-        $cat_model = Category::find()->all();
+
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $igallery_model = ItemGallery::find()->all();
         $allitem_model = Item::find()->all();
             
@@ -62,7 +64,8 @@ class CatalogController extends AppController{
             ->where('item_price.item_id = :item_id AND item_price.grade_id = item_grade.id', ["item_id" => $id])
             ->all();
 
-	    $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
 	    $allitem_model = Item::find()->all();
         // Отправка формы из карточки товара
         $form_model = new ContactForm();

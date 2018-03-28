@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use \yii\db\Query;
 /**
  * This is the model class for table "category".
  *
@@ -49,5 +49,14 @@ class Category extends \yii\db\ActiveRecord
             'img' => 'Img',
             'link' => 'Link',
         ];
+    }
+
+    public function getSidebar(){
+        return (new Query)
+            ->select('category.*')
+            ->from('item, category')
+            ->where('category.id = item.cat_id')
+            ->distinct()
+            ->all();
     }
 }

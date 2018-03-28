@@ -25,30 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <a href="/">Главная</a>
                         <h2><?= $this->title ?></h2>
                     </div>
-
-                    <div id="sidebar" class="col-md-3">
-                        <div class="widget widget_category">
-                            <ul>
-                                <? if (isset($cat_model)): ?>
-                                    <? foreach ($cat_model as $cat): ?>
-                                        <li class='parent_cat'>
-                                            <a href="/catalog/<?= $cat->link ?>"><?= $cat->name ?></a>
-                                            <ul>
-                                                <? foreach ($allitem_model as $item): ?>
-                                                    <? if ($item->cat_id == $cat->id): ?>
-                                                        <li class='chld_cat'><a
-                                                                href="/catalog/<?= $cat->link ?>/<?= $item->id ?>"><?= $item->name ?></a>
-                                                        </li>
-                                                    <? endif ?>
-                                                <? endforeach ?>
-                                            </ul>
-                                        </li>
-                                    <? endforeach ?>
-                                <? endif ?>
-                            </ul>
-                        </div>
-                    </div>
-
+                    <?=$this->render('@app/views/site/sidebar', compact('cat_model', 'allitem_model'));?>
+                    
                     <div class="col-md-9">
                         <div class="row">
                             <div class="products item">
@@ -107,8 +85,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 class="col-md-6"><?= $item_model->width ?></span>
                                         <? endif ?>
 
-                                        <a href="/upload/price.pdf" target="_blank">Скачать прайс</a>
-                                        <a href="/upload/tech.pdf" target="_blank">Технические условия</a>
+                                        <a href="/upload/price.pdf" target="_blank">Скачать прайс</a><br>
+                                        <a href="/upload/tech.xlsx" download>Технические условия</a>
 
 
                                         <div id="calculator" class="col-md-12">
@@ -178,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
 
                                         <input type="submit" data-value='<?= $item_model->name ?>'
-                                               data-id='<?= $item->id ?>' id="send_message" value="Отправить заявку"
+                                               data-id='<?= $item_model->id ?>' id="send_message" value="Отправить заявку"
                                                class="btn btn-line btn-add_to_cart order_btn">
                                     </div>
                                 <? endif ?>

@@ -70,7 +70,8 @@ class SiteController extends AppController {
 
     public function actionAbout(){
         $model = Page::findOne(1);
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('about', [
             'model' => $model,
@@ -82,7 +83,8 @@ class SiteController extends AppController {
 
     public function actionDiscount(){
         $model = Page::findOne(2);
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('discount', [
             'model' => $model,
@@ -93,7 +95,8 @@ class SiteController extends AppController {
 
     public function actionDelivery(){
         $model = Page::findOne(3);
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('delivery', [
             'model' => $model,
@@ -129,7 +132,8 @@ class SiteController extends AppController {
             ->limit($pages->limit)
             ->all();
 
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('articles', [
             'article_model' => $article_model,
@@ -141,7 +145,8 @@ class SiteController extends AppController {
 
     public function actionArticle($id){
         $article_model = Articles::findOne($id);
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('article_detail', [
             'article_model' => $article_model,
@@ -159,7 +164,8 @@ class SiteController extends AppController {
 
             return $this->refresh();
         }
-        $cat_model = Category::find()->all();
+        $cat = new Category();
+        $cat_model = $cat->getSidebar();
         $allitem_model = Item::find()->all();
         return $this->render('contact', [
             'model' => $model,
