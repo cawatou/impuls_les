@@ -31,6 +31,7 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="shortcut icon" href="<?=Yii::$app->getHomeUrl(); ?>favicon.ico" type="image/x-icon" />
     <?php $this->head() ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
@@ -193,7 +194,7 @@ $articles = Articles::find()->limit(5)->orderBy(['id' => SORT_DESC])->all();
                     </div>
                     <div class="col-md-6 text-right right_footer">
                         <div class="col-md-4">
-                            <p>+7 (812) 922-11-20</p>
+                            <p class="ya-phone"><?= $contact_model->phone ?></p>
                         </div>
                         <div class="col-md-4">
                             <p>impuls-les@mail.ru</p>

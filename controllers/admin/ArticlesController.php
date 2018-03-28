@@ -108,8 +108,10 @@ class ArticlesController extends Controller
                 if ($file_model->upload_articles()) {
                     $file_name = "/upload/articles/" . $_FILES['UploadForm']['name']['imageFile'];
                     $model->img = $file_name;
-                    $model->save();
+                    $model->update();
                 }
+            }else{
+                $model->update();
             }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

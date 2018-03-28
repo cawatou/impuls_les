@@ -64,7 +64,7 @@ $month = Array("01" => "Янв", "02" => "Фев", "03" => "Мар", "04" => "А
                                         </div>
 
                                         <div class="post-text">
-                                            <h3><a href="css/#"><?= $article->title ?></a></h3>
+                                            <h3><a href="/article/<?= $article->id ?>"><?= $article->title ?></a></h3>
                                             <p><?= substr($article->description, 0, 500)?> ...</p>
                                         </div>
 

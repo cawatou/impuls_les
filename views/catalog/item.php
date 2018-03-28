@@ -108,6 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <? endif ?>
 
                                         <a href="/upload/price.pdf" target="_blank">Скачать прайс</a>
+                                        <a href="/upload/tech.pdf" target="_blank">Технические условия</a>
 
 
                                         <div id="calculator" class="col-md-12">

@@ -62,7 +62,7 @@ $month = Array("01"=>"Янв", "02"=>"Фев", "03"=>"Мар", "04"=>"Апр", "
 							  </div>
 			
 								  <div class="post-text">
-									  <h3><a href="css/#"><?=$article_model->title?></a></h3>
+									  <h3><?=$article_model->title?></h3>
 									  <p class="text_descr"><?=$article_model->description?></p>
 								  </div>
 							  </div>

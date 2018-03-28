@@ -687,3 +687,7 @@ footer {
 #calculator .grade {
     margin-top: 0;
 }
+
+#mainmenu {
+    padding-left: 0;
+}
