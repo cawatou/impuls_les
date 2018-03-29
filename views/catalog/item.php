@@ -116,7 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             </div>
                                             <div class="col-md-12 range_slider">
                                                 <p>
-                                                    <label for="amount">Длинна:</label>
+                                                    <label for="amount">Длина:</label>
                                                     <input type="text" id="amount" readonly> мм
                                                 </p>
                                                 <div id="slider-range-max"></div>
