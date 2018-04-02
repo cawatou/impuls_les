@@ -151,7 +151,7 @@ if(isset($model)):?>
 							</div>
 						</div>
 			
-						<!--======================================= ВC =================================================-->
+						<!--======================================= В =================================================-->
 						<div class="grade grade4">
 							<div class="row row_top">
 								<div class="col-md-12">
@@ -170,7 +170,7 @@ if(isset($model)):?>
 									</div>
 								</div>
 								<div class="col-md-2">
-									<div class="circle">BC</div>
+									<div class="circle">B</div>
 								</div>
 								<div>
 									<div class="comment_right comment_block col-md-5">
